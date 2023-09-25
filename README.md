@@ -4,7 +4,7 @@
 
 ![NLP Flowchart](static/images/NLP%20Model%20Flowchart.png)
 
-## Graphs
+## Graphs for [Test Data](./static/data/test.csv)
 
 ### Confusion Matrix
 
@@ -13,6 +13,21 @@
 ### Accuracy Graph
 
 ![Accuracy Graph](./static/graphs/sentiment_bar_chart.png)
+
+## Tech Stack
+
+- Python (3.10.4)
+- Flask
+- HTML
+- CSS
+- JavaScript
+- Natural Language Processing (NLP) Stack:
+  - NLTK (Natural Language Toolkit)
+  - Scikit-learn
+  - Matplotlib
+  - Pandas
+  - Numpy
+  - Regular Expressions (Regex)
 
 ## Installation
 
