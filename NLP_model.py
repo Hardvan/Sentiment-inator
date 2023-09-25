@@ -177,7 +177,7 @@ if __name__ == '__main__':
     plt.show()
 
     end_time = time.time()
-    elapsed_time = end_time - start_time
+    elapsed_time = round(end_time - start_time, 2)
     print(f"Elapsed time: {elapsed_time} seconds")
 
     # Accuracy

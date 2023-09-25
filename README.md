@@ -4,6 +4,16 @@
 
 ![NLP Flowchart](static/images/NLP%20Model%20Flowchart.png)
 
+## Graphs
+
+### Confusion Matrix
+
+![Confusion Matrix](./static/graphs/confusion_matrix.png)
+
+### Accuracy Graph
+
+![Accuracy Graph](./static/graphs/sentiment_bar_chart.png)
+
 ## Installation
 
 1. Clone the repo
