@@ -3,8 +3,7 @@ import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import pickle
-import pandas as pd
-
+import matplotlib.pyplot as plt
 
 def load_sentiment_model(model_path):
 
@@ -62,7 +61,6 @@ def predict_sentiment(text, model_path='./static/models/my_best_sentiment_model_
 
 if __name__ == '__main__':
 
-    # Define a list of input texts and their corresponding actual sentiments
     input_texts = [
         "I love this product, it's amazing!",
         "This is a neutral statement.",
@@ -78,23 +76,28 @@ if __name__ == '__main__':
     actual_sentiments = ['positive', 'neutral', 'negative', 'positive', 'positive',
                          'neutral', 'positive', 'negative', 'neutral', 'positive']
 
-    # Create an empty DataFrame to store the results
-    results_df = pd.DataFrame(
-        columns=['Input Text', 'Predicted Sentiment', 'Actual Sentiment', 'Matched'])
+    correct_count = 0
+    incorrect_count = 0
 
-    # Loop through the input texts
     for input_text, actual_sentiment in zip(input_texts, actual_sentiments):
-        # Predict sentiment using the loaded model
         predicted_sentiment = predict_sentiment(input_text)
 
-        # Check if predicted and actual sentiments match
-        matched = '✅' if predicted_sentiment == actual_sentiment else '❌'
+        if predicted_sentiment == actual_sentiment:
+            correct_count += 1
+        else:
+            incorrect_count += 1
 
-        # Append the results to the DataFrame
-        results_df = pd.concat([results_df, pd.DataFrame({'Input Text': input_text,
-                                                          'Predicted Sentiment': predicted_sentiment,
-                                                          'Actual Sentiment': actual_sentiment,
-                                                          'Matched': matched}, index=[0])], ignore_index=True)
+        print(f"Input Text: {input_text}")
+        print(f"Predicted Sentiment: {predicted_sentiment}")
+        print(f"Actual Sentiment: {actual_sentiment}")
+        print("\n")
 
-    # Display the results
-    print(results_df)
+    # Create a bar chart to visualize the results
+    labels = ['Correct', 'Incorrect']
+    counts = [correct_count, incorrect_count]
+
+    plt.bar(labels, counts, color=['green', 'red'])
+    plt.xlabel('Predictions')
+    plt.ylabel('Count')
+    plt.title('Sentiment Analysis Results')
+    plt.show()
