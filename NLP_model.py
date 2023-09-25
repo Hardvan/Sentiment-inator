@@ -8,6 +8,7 @@ from sklearn.metrics import confusion_matrix
 import pandas as pd
 import numpy as np
 import re
+import time
 
 
 def load_sentiment_model(model_path):
@@ -107,6 +108,8 @@ if __name__ == '__main__':
     true_labels = []
     predicted_labels = []
 
+    start_time = time.time()
+
     for input_text, actual_sentiment in zip(input_texts, actual_sentiments):
         predicted_sentiment = predict_sentiment(input_text)
 
@@ -172,3 +175,12 @@ if __name__ == '__main__':
     plt.savefig('./static/graphs/confusion_matrix.png')
 
     plt.show()
+
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"Elapsed time: {elapsed_time} seconds")
+
+    # Accuracy
+    accuracy = round(
+        correct_count / (correct_count + incorrect_count) * 100, 2)
+    print(f"Accuracy: {accuracy}%")
