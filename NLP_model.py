@@ -39,16 +39,15 @@ def text_process(message):
     return ' '.join([word for word in cleaned_words if word not in STOPWORDS])
 
 
-def predict_sentiment(text, model_path='./my_best_sentiment_model_1695566256.8833115.sav'):
+def predict_sentiment(text, model_path='./static/models/my_best_sentiment_model_1695566256.8833115.sav'):
 
     model = load_sentiment_model(model_path)
 
     # Perform the necessary text preprocessing
-    # Use your text preprocessing function
     cleaned_text = text_process(text)
 
     # Vectorize the cleaned text
-    vect = pickle.load(open("my_vect.pkl", "rb"))
+    vect = pickle.load(open("./static/models/my_vect.pkl", "rb"))
     text_dtm = vect.transform([cleaned_text])
 
     # Predict sentiment using the loaded model
@@ -92,12 +91,10 @@ if __name__ == '__main__':
         matched = '✅' if predicted_sentiment == actual_sentiment else '❌'
 
         # Append the results to the DataFrame
-        results_df = results_df.append({
-            'Input Text': input_text,
-            'Predicted Sentiment': predicted_sentiment,
-            'Actual Sentiment': actual_sentiment,
-            'Matched': matched
-        }, ignore_index=True)
+        results_df = pd.concat([results_df, pd.DataFrame({'Input Text': input_text,
+                                                          'Predicted Sentiment': predicted_sentiment,
+                                                          'Actual Sentiment': actual_sentiment,
+                                                          'Matched': matched}, index=[0])], ignore_index=True)
 
     # Display the results
     print(results_df)
