@@ -1,11 +1,15 @@
 # Sentimentinator
 
+## Project Flowchart
+
+![NLP Flowchart](static/images/NLP%20Model%20Flowchart.png)
+
 ## Installation
 
 1. Clone the repo
 
    ```bash
-   git clone https://github.com/Hardvan/Sentimentinator
+   git clone https://github.com/Hardvan/Sentimentinator.git
    ```
 
 2. Navigate to the folder
