@@ -127,10 +127,15 @@ if __name__ == '__main__':
     labels = ['Correct', 'Incorrect']
     counts = [correct_count, incorrect_count]
 
+    plt.figure(figsize=(8, 6), dpi=200)
     plt.bar(labels, counts, color=['green', 'red'])
     plt.xlabel('Predictions')
     plt.ylabel('Count')
     plt.title('Sentiment Analysis Results')
+
+    # Save the bar chart as an image under static/graphs folder
+    plt.savefig('./static/graphs/sentiment_bar_chart.png')
+
     plt.show()
 
     # Calculate the confusion matrix
@@ -141,7 +146,7 @@ if __name__ == '__main__':
     print(cm)
 
     # Plot the confusion matrix as a heatmap
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(8, 6), dpi=200)
     im = ax.imshow(cm, interpolation='nearest', cmap="Blues")
     ax.figure.colorbar(im, ax=ax)
     ax.set(xticks=np.arange(cm.shape[1]),
@@ -162,4 +167,8 @@ if __name__ == '__main__':
                     color="white" if cm[i, j] > thresh else "black")
 
     fig.tight_layout()
+
+    # Save the confusion matrix plot as an image under static/graphs folder
+    plt.savefig('./static/graphs/confusion_matrix.png')
+
     plt.show()
