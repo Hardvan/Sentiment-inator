@@ -6,13 +6,34 @@
     <title>Sentiment Analysis</title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="url_for('static', filename='css/index.css')" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
   </head>
 
   <body>
-    <h1>Hello, World!</h1>
+    <h1>Sentiment Analysis</h1>
+
+    <!-- Input Form -->
+    <form action="/" method="POST">
+      <label for="text_input">Enter Text:</label>
+      <textarea id="text_input" name="text_input" rows="4" cols="50"></textarea>
+      <br />
+      <input type="submit" value="Analyze Sentiment" />
+    </form>
+
+    <!-- Predicted Sentiment Result -->
+    {% if result %}
+    <div class="result">
+      <h2>Input Text</h2>
+      <p>{{ result.text_input }}</p>
+      <h2>Predicted Sentiment:</h2>
+      <p>{{ result.predicted_sentiment }}</p>
+    </div>
+    {% endif %}
 
     <!-- Custom JS -->
-    <script src="url_for('static', filename='js/index.js')"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>
