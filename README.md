@@ -2,6 +2,8 @@
 
 Sentimentinator is a web-based sentiment analysis tool that utilizes natural language processing (NLP) techniques to analyze and determine the sentiment (positive, neutral, or negative) of textual content. The project aims to help users understand the emotional tone and polarity of text data, making it useful for various applications, such as social media monitoring, customer feedback analysis, and more.
 
+## [Link to the Website](https://sentimentinator.onrender.com)
+
 ## Project Flowchart
 
 ![NLP Flowchart](static/images/NLP%20Model%20Flowchart.png)
