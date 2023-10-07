@@ -16,17 +16,18 @@
     <h1 class="title">Sentimentinator</h1>
 
     <!-- Input Form -->
-    <form action="/" method="POST">
-      <label for="text_input" class="Enter_text">Enter Text:</label>
-      <textarea
+    <form action="/" method="POST" class="input-form">
+      <div class="input-title">
+        Welcome,<br /><span>sign up to continue</span>
+      </div>
+      <input
+        type="text"
         id="text_input"
         name="text_input"
-        rows="4"
-        cols="50"
-        class="textbox"
-      ></textarea>
-      <br />
-      <input type="submit" value="Analyze Sentiment" />
+        placeholder="Enter text"
+        class="input"
+      />
+      <button type="submit" class="button-submit">Submit</button>
     </form>
 
     <!-- Predicted Sentiment Result -->
