@@ -13,22 +13,29 @@
   </head>
 
   <body>
-    <h1 class="title">Sentimentinator</h1>
-
-    <!-- Input Form -->
-    <form action="/" method="POST" class="input-form">
-      <div class="input-title">
-        Hi,<br /><span>Enter text to predict sentiment</span>
-      </div>
-      <input
-        type="text"
-        id="text_input"
-        name="text_input"
-        placeholder="Enter text"
-        class="input"
-      />
-      <button type="submit" class="button-submit">Submit</button>
-    </form>
+    <div class="central_span">
+      <h1 class="title">Sentimentinator</h1>
+      <!-- Input Form -->
+      <form action="/" method="POST" class="input-form">
+        <div class="input-title">
+          Hi,<br /><span>Enter text to predict sentiment</span>
+        </div>
+        <input
+          type="text"
+          id="text_input"
+          name="text_input"
+          placeholder="Enter text"
+          class="input"
+        />
+        <button type="submit" class="button-submit">Submit</button>
+      </form>
+    </div>
+    <footer class="footer">
+      <h2>
+        Made with ♥️ by <a href="https://github.com/Hardvan">Hardvan</a> and
+        <a href="https://github.com/Krounosity">Krounosity</a>
+      </h2>
+    </footer>
 
     <!-- Predicted Sentiment Result -->
     {% if result %}
