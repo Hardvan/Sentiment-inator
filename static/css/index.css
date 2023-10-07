@@ -1,3 +1,11 @@
+:root {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+}
+
 .title {
   text-align: center;
   font-size: 3.3rem;
@@ -5,11 +13,6 @@
 
 /* Input Form */
 .input-form {
-  --input-focus: #2d8cf0;
-  --font-color: #323232;
-  --font-color-sub: #666;
-  --bg-color: #fff;
-  --main-color: #323232;
   padding: 20px;
   background: lightgrey;
   display: flex;
