@@ -105,6 +105,10 @@ body {
   font-size: 15px;
   font-weight: 600;
   color: var(--font-color);
+  background-color: white;
+  display: inline-block; /* to make the background color only cover the text */
+  padding: 10px;
+  border-radius: 5px;
 }
 
 @media (max-width: 768px) {
