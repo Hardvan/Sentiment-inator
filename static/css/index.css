@@ -155,7 +155,6 @@ body {
   box-shadow: 4px 4px var(--main-color);
   padding: 10px 10px;
   margin: 20px auto;
-  margin-top: 200px;
   text-align: center;
   font-size: 0.8rem;
   color: var(--font-color);
@@ -193,6 +192,7 @@ body {
 
   .result {
     width: 300px;
+    padding: 10px 0;
   }
 
   .footer {
