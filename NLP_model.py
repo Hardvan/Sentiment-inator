@@ -10,6 +10,9 @@ import numpy as np
 import re
 import time
 
+import nltk
+nltk.download('stopwords')
+
 
 def load_sentiment_model(model_path):
 
