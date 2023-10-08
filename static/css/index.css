@@ -119,6 +119,52 @@ body {
   cursor: pointer;
 }
 
+/* Sample Text Prompts */
+.sample-text-prompts {
+  background: lightgrey;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  margin: 20px auto;
+  max-width: 100%; /* Allow it to expand to full width on smaller screens */
+  width: 420px;
+  padding: 10px;
+}
+
+.sample-text-prompts h3 {
+  color: var(--font-color);
+  font-weight: 900;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.sample-text-prompts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sample-text-prompts li {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.sample-text-prompts a {
+  text-decoration: none;
+  color: var(--font-color);
+  font-size: 15px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+}
+
+.sample-text-prompts a:hover {
+  background-color: var(--input-focus);
+  color: var(--bg-color);
+}
+
 /* Predicted Sentiment Result */
 .result {
   display: flex;
@@ -190,6 +236,11 @@ body {
   }
 
   .input-form {
+    width: 300px;
+    padding: 10px 0;
+  }
+
+  .sample-text-prompts {
     width: 300px;
     padding: 10px 0;
   }

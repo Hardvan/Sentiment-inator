@@ -1,40 +1,3 @@
-app.py:
-from flask import Flask, render_template, request, redirect, url_for
-
-
-# Import the predict_sentiment function
-import NLP_model
-
-app = Flask(__name__)
-
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-
-    result = None
-    if request.method == 'POST':
-        result = {}
-
-        # Text input from the form
-        text_input = request.form['text_input']
-        result["text_input"] = text_input
-
-        # Predict the sentiment
-        predicted_sentiment = None  # positive, neutral, negative
-        if text_input:
-            predicted_sentiment = NLP_model.predict_sentiment(text_input)
-        else:
-            predicted_sentiment = "Please enter some text."
-
-        result["predicted_sentiment"] = predicted_sentiment
-
-    return render_template("index.html", result=result)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
 templates/index.html:
 <!DOCTYPE html>
 <html lang="en">
@@ -74,18 +37,20 @@ templates/index.html:
         <h3>Sample Text Prompts:</h3>
         <ul>
           <li>
-            <a href="#" onclick="submitSampleText('positive')"
+            <a href="#" onclick="submitSampleText('Today is a good day!')"
               >Today is a good day!</a
             >
           </li>
           <li>
-            <a href="#" onclick="submitSampleText('neutral')"
-              >I am feeling okay.</a
+            <a
+              href="#"
+              onclick="submitSampleText('This is a neutral statement.')"
+              >This is a neutral statement.</a
             >
           </li>
           <li>
-            <a href="#" onclick="submitSampleText('negative')"
-              >He is a bad person.</a
+            <a href="#" onclick="submitSampleText('The event was bad.')"
+              >The event was bad.</a
             >
           </li>
         </ul>
@@ -93,7 +58,7 @@ templates/index.html:
 
       <!-- Predicted Sentiment Result -->
       {% if result %}
-      <div class="result">
+      <div class="result" id="result">
         <h2>Input Text</h2>
         <p>{{ result.text_input }}</p>
         <h2>Predicted Sentiment:</h2>
@@ -118,8 +83,222 @@ templates/index.html:
         textInput.value = sentiment;
         document.querySelector("form.input-form").submit();
       }
+
+      // Automatically scroll to result after form submission
+      const result = document.getElementById("result");
+      if (result) {
+        result.scrollIntoView();
+      }
     </script>
   </body>
 </html>
+
+
+static/css/index.css:
+:root {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  background-image: url("../images/b_and_w_bg.png");
+}
+
+.title {
+  text-align: center;
+  font-size: 3.3rem;
+  color: var(--font-color);
+  padding: 20px;
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  margin: 20px auto;
+  width: 420px;
+}
+
+.central-span {
+  padding: 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  margin: 20px auto;
+  max-width: 100%; /* Allow it to expand to full width on smaller screens */
+  width: 600px;
+  height: auto; /* Allow it to expand in height as needed */
+  margin-top: 10px;
+}
+
+/* Input Form */
+.input-form {
+  padding: 20px;
+  background: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  margin: auto 20px;
+  width: 420px;
+}
+
+.input-title {
+  color: var(--font-color);
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.input-title span {
+  color: var(--font-color-sub);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.input {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--font-color-sub);
+  opacity: 0.8;
+}
+
+.input:focus {
+  border: 2px solid var(--input-focus);
+}
+
+.button-submit {
+  margin: 20px auto;
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+/* Predicted Sentiment Result */
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: lightgrey;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  color: var(--font-color);
+  margin: 20px auto;
+  max-width: 100%; /* Allow it to expand to full width on smaller screens */
+  width: 420px;
+}
+
+.result h2 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.result p {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  background-color: white;
+  display: inline-block; /* to make the background color only cover the text */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.footer {
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  padding: 10px 10px;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--font-color);
+  max-width: fit-content;
+  width: 100%;
+  position: relative;
+  clear: both;
+}
+
+.footer a {
+  color: var(--main-color);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .title {
+    width: 300px;
+    font-size: 2rem;
+    padding: 10px 0;
+  }
+
+  .central-span {
+    width: 300px;
+  }
+
+  .input-form {
+    width: 300px;
+    padding: 10px 0;
+  }
+
+  .result {
+    width: 300px;
+    padding: 10px 0;
+  }
+
+  .footer {
+    width: 300px;
+  }
+}
 
 
