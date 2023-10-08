@@ -61,7 +61,9 @@
         <h2>Input Text</h2>
         <p>{{ result.text_input }}</p>
         <h2>Predicted Sentiment:</h2>
-        <p>{{ result.predicted_sentiment }}</p>
+        <p class="prediction-{{result.predicted_sentiment}}">
+          {{ result.predicted_sentiment }}
+        </p>
       </div>
       {% endif %}
     </div>

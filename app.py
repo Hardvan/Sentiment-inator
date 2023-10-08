@@ -21,14 +21,12 @@ def index():
         # Predict the sentiment
         predicted_sentiment = None  # positive, neutral, negative
         if text_input:
-            predicted_sentiment, result_color = NLP_model.predict_sentiment(
+            predicted_sentiment = NLP_model.predict_sentiment(
                 text_input)
         else:
             predicted_sentiment = "Please enter some text."
-            result_color = "blue"
 
         result["predicted_sentiment"] = predicted_sentiment
-        result["result_color"] = result_color
 
     return render_template("index.html", result=result)
 

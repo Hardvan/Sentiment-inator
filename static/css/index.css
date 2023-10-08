@@ -4,6 +4,9 @@
   --font-color-sub: #666;
   --bg-color: #fff;
   --main-color: #323232;
+  --positive-color: #19be6b;
+  --neutral-color: #2d8cf0;
+  --negative-color: #ed3f14;
 }
 
 html {
@@ -194,9 +197,28 @@ body {
   font-weight: 600;
   color: var(--font-color);
   background-color: white;
+  box-shadow: 4px 4px var(--main-color);
   display: inline-block; /* to make the background color only cover the text */
   padding: 10px;
   border-radius: 5px;
+}
+
+.prediction-positive {
+  background-color: var(--positive-color) !important;
+  color: var(--bg-color) !important;
+  box-shadow: 4px 4px var(--main-color) !important;
+}
+
+.prediction-neutral {
+  background-color: var(--neutral-color) !important;
+  color: var(--bg-color) !important;
+  box-shadow: 4px 4px var(--main-color) !important;
+}
+
+.prediction-negative {
+  background-color: var(--negative-color) !important;
+  color: var(--bg-color) !important;
+  box-shadow: 4px 4px var(--main-color) !important;
 }
 
 .footer {
