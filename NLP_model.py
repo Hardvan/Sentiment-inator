@@ -14,6 +14,12 @@ import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
 
+
+COLOR_MAP = {'positive': 'green',
+             'neutral': 'blue',
+             'negative': 'red'}
+
+
 def load_sentiment_model(model_path):
 
     model = joblib.load(model_path)
@@ -76,7 +82,9 @@ def predict_sentiment(text, model_path='./static/models/my_best_sentiment_model_
     sentiment_mapping = {0: 'positive', 1: 'neutral', 2: 'negative'}
     predicted_sentiment = sentiment_mapping[sentiment_label]
 
-    return predicted_sentiment
+    result_color = COLOR_MAP[predicted_sentiment]
+
+    return predicted_sentiment, result_color
 
 
 if __name__ == '__main__':
