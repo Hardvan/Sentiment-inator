@@ -6,6 +6,10 @@
   --main-color: #323232;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -197,6 +201,5 @@ body {
 
   .footer {
     width: 300px;
-
   }
 }

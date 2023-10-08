@@ -57,7 +57,7 @@
 
       <!-- Predicted Sentiment Result -->
       {% if result %}
-      <div class="result">
+      <div class="result" id="result">
         <h2>Input Text</h2>
         <p>{{ result.text_input }}</p>
         <h2>Predicted Sentiment:</h2>
@@ -81,6 +81,12 @@
         const textInput = document.getElementById("text_input");
         textInput.value = sentiment;
         document.querySelector("form.input-form").submit();
+      }
+
+      // Automatically scroll to result after form submission
+      const result = document.getElementById("result");
+      if (result) {
+        result.scrollIntoView();
       }
     </script>
   </body>
