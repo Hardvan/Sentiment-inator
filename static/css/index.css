@@ -219,10 +219,13 @@ body {
   color: var(--main-color);
   text-decoration: none;
   margin: 0 10px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Added transition */
 }
 
 .footer a:hover {
-  text-decoration: underline;
+  background-color: var(--input-focus); /* Added background color on hover */
+  color: var(--bg-color); /* Added text color on hover */
+  box-shadow: 4px 4px var(--main-color); /* Added box shadow on hover */
 }
 
 @media (max-width: 768px) {
