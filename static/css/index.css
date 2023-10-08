@@ -55,7 +55,7 @@ body {
 
 /* Input Form */
 .input-form {
-  padding: 20px;
+  padding: 10px;
   background: lightgrey;
   display: flex;
   flex-direction: column;
@@ -65,7 +65,7 @@ body {
   border-radius: 5px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
-  margin: auto 20px;
+  margin: 10px auto;
   width: 420px;
 }
 
@@ -74,6 +74,7 @@ body {
   font-weight: 900;
   font-size: 20px;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .input-title span {
@@ -125,7 +126,7 @@ body {
   border-radius: 5px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
-  margin: 20px auto;
+  margin: 10px auto;
   max-width: 100%; /* Allow it to expand to full width on smaller screens */
   width: 420px;
   padding: 10px;
@@ -172,12 +173,12 @@ body {
   align-items: center;
   justify-content: center;
   background: lightgrey;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
   color: var(--font-color);
-  margin: 20px auto;
+  margin: 10px auto;
   max-width: 100%; /* Allow it to expand to full width on smaller screens */
   width: 420px;
 }
