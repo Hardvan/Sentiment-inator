@@ -32,7 +32,7 @@ body {
   width: 420px;
 }
 
-.central_span{
+.central_span {
   padding: 20px;
   background: #fff;
   display: flex;
@@ -48,7 +48,7 @@ body {
   height: 32rem;
   margin-top: 10px;
 }
-.footer{
+.footer {
   background-color: var(--main-color);
   border-radius: 5px 5px 0px 0px;
   margin-top: 120px;
