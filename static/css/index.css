@@ -155,8 +155,9 @@ body {
   box-shadow: 4px 4px var(--main-color);
   padding: 10px 10px;
   margin: 20px auto;
+  margin-top: 200px;
   text-align: center;
-  font-size: 18px;
+  font-size: 0.8rem;
   color: var(--font-color);
   max-width: fit-content;
   width: 100%;
@@ -176,14 +177,26 @@ body {
 
 @media (max-width: 768px) {
   .title {
-    font-size: 2.5rem;
+    width: 300px;
+    font-size: 2rem;
+    padding: 10px 0;
+  }
+
+  .central-span {
+    width: 300px;
   }
 
   .input-form {
     width: 300px;
+    padding: 10px 0;
   }
 
   .result {
     width: 300px;
+  }
+
+  .footer {
+    width: 300px;
+
   }
 }
