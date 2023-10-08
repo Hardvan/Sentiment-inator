@@ -14,7 +14,7 @@ templates/index.html:
   </head>
 
   <body>
-    <div class="central_span">
+    <div class="central-span">
       <h1 class="title">Sentimentinator</h1>
 
       <!-- Input Form -->
@@ -31,21 +31,21 @@ templates/index.html:
         />
         <button type="submit" class="button-submit">Submit</button>
       </form>
-    </div>
 
-    <!-- Predicted Sentiment Result -->
-    {% if result %}
-    <div class="result">
-      <h2>Input Text</h2>
-      <p>{{ result.text_input }}</p>
-      <h2>Predicted Sentiment:</h2>
-      <p>{{ result.predicted_sentiment }}</p>
+      <!-- Predicted Sentiment Result -->
+      {% if result %}
+      <div class="result">
+        <h2>Input Text</h2>
+        <p>{{ result.text_input }}</p>
+        <h2>Predicted Sentiment:</h2>
+        <p>{{ result.predicted_sentiment }}</p>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
     <footer class="footer">
       <h2>
-        Made with ♥️ by <a href="https://github.com/Hardvan">Hardvan</a> and
+        Made with 🤍 by <a href="https://github.com/Hardvan">Hardvan</a>,
         <a href="https://github.com/Krounosity">Krounosity</a>
       </h2>
     </footer>
@@ -91,7 +91,7 @@ body {
   width: 420px;
 }
 
-.central_span {
+.central-span {
   padding: 20px;
   background: #fff;
   display: flex;
@@ -107,14 +107,7 @@ body {
   height: 32rem;
   margin-top: 10px;
 }
-.footer {
-  background-color: var(--main-color);
-  border-radius: 5px 5px 0px 0px;
-  margin-top: 120px;
-  height: 9rem;
-  text-align: center;
-  font-size: 20px;
-}
+
 /* Input Form */
 .input-form {
   padding: 20px;
@@ -211,6 +204,29 @@ body {
   display: inline-block; /* to make the background color only cover the text */
   padding: 10px;
   border-radius: 5px;
+}
+
+.footer {
+  background-color: var(--main-color);
+  border-radius: 5px 5px 0 0;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {

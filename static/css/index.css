@@ -17,7 +17,6 @@ body {
   text-align: center;
   font-size: 3.3rem;
   color: var(--font-color);
-  margin: 20px 0;
   padding: 20px;
   background: lightgrey;
   display: flex;
@@ -32,7 +31,7 @@ body {
   width: 420px;
 }
 
-.central_span {
+.central-span {
   padding: 20px;
   background: #fff;
   display: flex;
@@ -44,8 +43,9 @@ body {
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
   margin: 20px auto;
-  width: 42rem;
-  height: 32rem;
+  max-width: 100%; /* Allow it to expand to full width on smaller screens */
+  width: 600px;
+  height: auto; /* Allow it to expand in height as needed */
   margin-top: 10px;
 }
 
@@ -128,6 +128,7 @@ body {
   box-shadow: 4px 4px var(--main-color);
   color: var(--font-color);
   margin: 20px auto;
+  max-width: 100%; /* Allow it to expand to full width on smaller screens */
   width: 420px;
 }
 
@@ -148,20 +149,23 @@ body {
 }
 
 .footer {
-  background-color: var(--main-color);
-  border-radius: 5px 5px 0 0;
-  padding: 20px 0;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  padding: 10px 10px;
+  margin: 20px auto;
   text-align: center;
   font-size: 18px;
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  color: var(--font-color);
+  max-width: fit-content;
+  width: 100%;
+  position: relative;
+  clear: both;
 }
 
 .footer a {
-  color: #fff;
+  color: var(--main-color);
   text-decoration: none;
   margin: 0 10px;
 }

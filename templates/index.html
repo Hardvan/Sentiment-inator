@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div class="central_span">
+    <div class="central-span">
       <h1 class="title">Sentimentinator</h1>
 
       <!-- Input Form -->
@@ -30,17 +30,17 @@
         />
         <button type="submit" class="button-submit">Submit</button>
       </form>
-    </div>
 
-    <!-- Predicted Sentiment Result -->
-    {% if result %}
-    <div class="result">
-      <h2>Input Text</h2>
-      <p>{{ result.text_input }}</p>
-      <h2>Predicted Sentiment:</h2>
-      <p>{{ result.predicted_sentiment }}</p>
+      <!-- Predicted Sentiment Result -->
+      {% if result %}
+      <div class="result">
+        <h2>Input Text</h2>
+        <p>{{ result.text_input }}</p>
+        <h2>Predicted Sentiment:</h2>
+        <p>{{ result.predicted_sentiment }}</p>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
     <footer class="footer">
       <h2>
