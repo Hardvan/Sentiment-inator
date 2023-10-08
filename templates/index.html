@@ -31,6 +31,28 @@
         <button type="submit" class="button-submit">Submit</button>
       </form>
 
+      <!-- Sample Text Prompts -->
+      <div class="sample-text-prompts">
+        <h3>Sample Text Prompts:</h3>
+        <ul>
+          <li>
+            <a href="#" onclick="submitSampleText('positive')"
+              >Today is a good day!</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="submitSampleText('neutral')"
+              >I am feeling okay.</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="submitSampleText('negative')"
+              >He is a bad person.</a
+            >
+          </li>
+        </ul>
+      </div>
+
       <!-- Predicted Sentiment Result -->
       {% if result %}
       <div class="result">
@@ -51,5 +73,13 @@
 
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script>
+      // Handle sample text prompts
+      function submitSampleText(sentiment) {
+        const textInput = document.getElementById("text_input");
+        textInput.value = sentiment;
+        document.querySelector("form.input-form").submit();
+      }
+    </script>
   </body>
 </html>

@@ -54,8 +54,8 @@ if __name__ == "__main__":
     index_js = "static/js/index.js"
 
     file_list = [
+        app_py,
         index_html,
-        index_css
     ]
 
     read_files_in_directory(".", file_list)

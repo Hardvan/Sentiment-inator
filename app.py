@@ -19,7 +19,7 @@ def index():
         result["text_input"] = text_input
 
         # Predict the sentiment
-        predicted_sentiment = None
+        predicted_sentiment = None  # positive, neutral, negative
         if text_input:
             predicted_sentiment = NLP_model.predict_sentiment(text_input)
         else:
