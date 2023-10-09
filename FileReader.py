@@ -55,8 +55,8 @@ if __name__ == "__main__":
 
     file_list = [
         app_py,
-        nlp_model_py,
         index_html,
+        index_css
     ]
 
     read_files_in_directory(".", file_list)

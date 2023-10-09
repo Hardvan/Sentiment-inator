@@ -13,8 +13,9 @@
   </head>
 
   <body>
-    <div class="central_span">
+    <div class="central-span">
       <h1 class="title">Sentimentinator</h1>
+
       <!-- Input Form -->
       <form action="/" method="POST" class="input-form">
         <div class="input-title">
@@ -29,25 +30,66 @@
         />
         <button type="submit" class="button-submit">Submit</button>
       </form>
+
+      <!-- Sample Text Prompts -->
+      <div class="sample-text-prompts">
+        <h3>Sample Text Prompts:</h3>
+        <ul>
+          <li>
+            <a href="#" onclick="submitSampleText('Today is a good day!')"
+              >Today is a good day!</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="submitSampleText('This is a neutral statement.')"
+              >This is a neutral statement.</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="submitSampleText('The event was bad.')"
+              >The event was bad.</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Predicted Sentiment Result -->
+      {% if result %}
+      <div class="result" id="result">
+        <h2>Input Text</h2>
+        <p>{{ result.text_input }}</p>
+        <h2>Predicted Sentiment:</h2>
+        <p class="prediction-{{result.predicted_sentiment}}">
+          {{ result.predicted_sentiment }}
+        </p>
+      </div>
+      {% endif %}
     </div>
+
     <footer class="footer">
       <h2>
-        Made with ♥️ by <a href="https://github.com/Hardvan">Hardvan</a> and
+        Made with 🤍 by <a href="https://github.com/Hardvan">Hardvan</a>,
         <a href="https://github.com/Krounosity">Krounosity</a>
       </h2>
     </footer>
 
-    <!-- Predicted Sentiment Result -->
-    {% if result %}
-    <div class="result">
-      <h2>Input Text</h2>
-      <p>{{ result.text_input }}</p>
-      <h2>Predicted Sentiment:</h2>
-      <p>{{ result.predicted_sentiment }}</p>
-    </div>
-    {% endif %}
-
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script>
+      // Handle sample text prompts
+      function submitSampleText(sentiment) {
+        const textInput = document.getElementById("text_input");
+        textInput.value = sentiment;
+        document.querySelector("form.input-form").submit();
+      }
+
+      // Automatically scroll to result after form submission
+      const result = document.getElementById("result");
+      if (result) {
+        result.scrollIntoView();
+      }
+    </script>
   </body>
 </html>
