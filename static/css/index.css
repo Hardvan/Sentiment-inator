@@ -18,6 +18,8 @@ body {
   font-family: Arial, sans-serif;
   background-color: var(--bg-color);
   background-image: url("../images/b_and_w_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .title {
