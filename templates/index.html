@@ -109,19 +109,15 @@
         document.querySelector("form.input-form").submit();
       }
 
-      // Function to add the "hovered" class to the element
       function addHoveredClass(element) {
         element.classList.add("hovered");
       }
-
-      // Function to remove the "hovered" class from the element
       function removeHoveredClass(element) {
         element.classList.remove("hovered");
       }
 
-      // Automatically add and remove the "hovered" class every 2 seconds
+      // Automatically add hover effect to sentimentinator span in description after 2 seconds
       const sentimentinators = document.querySelectorAll(".sentimentinators");
-
       setInterval(() => {
         // Remove the hover effect from the current element
         removeHoveredClass(sentimentinators[0]);
