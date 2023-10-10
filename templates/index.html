@@ -109,6 +109,27 @@
         document.querySelector("form.input-form").submit();
       }
 
+      // Function to add the "hovered" class to the element
+      function addHoveredClass(element) {
+        element.classList.add("hovered");
+      }
+
+      // Function to remove the "hovered" class from the element
+      function removeHoveredClass(element) {
+        element.classList.remove("hovered");
+      }
+
+      // Automatically add and remove the "hovered" class every 2 seconds
+      const sentimentinators = document.querySelectorAll(".sentimentinators");
+
+      setInterval(() => {
+        // Remove the hover effect from the current element
+        removeHoveredClass(sentimentinators[0]);
+
+        // Apply the hover effect to the new current element
+        addHoveredClass(sentimentinators[0]);
+      }, 2000);
+
       // Automatically scroll to result after form submission
       const result = document.getElementById("result");
       if (result) {
