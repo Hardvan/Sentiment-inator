@@ -1,43 +1,3 @@
-app.py:
-from flask import Flask, render_template, request, redirect, url_for
-
-
-# Import the predict_sentiment function
-import NLP_model
-
-app = Flask(__name__)
-
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-
-    result = None
-    if request.method == 'POST':
-        result = {}
-
-        # Text input from the form
-        text_input = request.form['text_input']
-        result["text_input"] = text_input
-
-        # Predict the sentiment
-        predicted_sentiment = None  # positive, neutral, negative
-        if text_input:
-            predicted_sentiment, result_color = NLP_model.predict_sentiment(
-                text_input)
-        else:
-            predicted_sentiment = "Please enter some text."
-            result_color = "blue"
-
-        result["predicted_sentiment"] = predicted_sentiment
-        result["result_color"] = result_color
-
-    return render_template("index.html", result=result)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
 templates/index.html:
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +5,13 @@ templates/index.html:
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sentiment Analysis</title>
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+      type="image/x-icon"
+    />
 
     <!-- Custom CSS -->
     <link
@@ -56,6 +23,23 @@ templates/index.html:
   <body>
     <div class="central-span">
       <h1 class="title">Sentimentinator</h1>
+
+      <!-- Description -->
+      <div class="description">
+        <h2>Description</h2>
+        <p>
+          In our quest for profound insights, we stumbled upon a revelation
+          hidden within our black-and-white color scheme. You see, it's not just
+          any color palette; it's the very same one mimes are stereotypically
+          associated with—yes, those silent performers who communicate without
+          words. Much like our fellow mime, Charlie Chaplin, we too won't "talk"
+          to the person interacting with us, but fear not, for we're still
+          masters at expressing and reflecting the emotions that dwell within
+          them, all while maintaining our silence. We're the Sentimentinators,
+          and we're here to help you understand the emotions behind the words
+          you type.
+        </p>
+      </div>
 
       <!-- Input Form -->
       <form action="/" method="POST" class="input-form">
@@ -102,7 +86,9 @@ templates/index.html:
         <h2>Input Text</h2>
         <p>{{ result.text_input }}</p>
         <h2>Predicted Sentiment:</h2>
-        <p>{{ result.predicted_sentiment }}</p>
+        <p class="prediction-{{result.predicted_sentiment}}">
+          {{ result.predicted_sentiment }}
+        </p>
       </div>
       {% endif %}
     </div>
@@ -141,6 +127,9 @@ static/css/index.css:
   --font-color-sub: #666;
   --bg-color: #fff;
   --main-color: #323232;
+  --positive-color: #19be6b;
+  --neutral-color: #2d8cf0;
+  --negative-color: #ed3f14;
 }
 
 html {
@@ -188,6 +177,28 @@ body {
   width: 600px;
   height: auto; /* Allow it to expand in height as needed */
   margin-top: 10px;
+}
+
+/* Description */
+.description {
+  color: var(--font-color);
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 10px;
+}
+
+.description h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.description p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /* Input Form */
@@ -331,9 +342,28 @@ body {
   font-weight: 600;
   color: var(--font-color);
   background-color: white;
+  box-shadow: 4px 4px var(--main-color);
   display: inline-block; /* to make the background color only cover the text */
   padding: 10px;
   border-radius: 5px;
+}
+
+.prediction-positive {
+  background-color: var(--positive-color) !important;
+  color: var(--bg-color) !important;
+  box-shadow: 4px 4px var(--main-color) !important;
+}
+
+.prediction-neutral {
+  background-color: var(--neutral-color) !important;
+  color: var(--bg-color) !important;
+  box-shadow: 4px 4px var(--main-color) !important;
+}
+
+.prediction-negative {
+  background-color: var(--negative-color) !important;
+  color: var(--bg-color) !important;
+  box-shadow: 4px 4px var(--main-color) !important;
 }
 
 .footer {
