@@ -84,6 +84,18 @@ body {
   text-align: justify;
 }
 
+.sentimentinators {
+  color: var(--main-color);
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.sentimentinators:hover {
+  background-color: var(--input-focus);
+  color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+}
+
 /* Input Form */
 .input-form {
   padding: 10px;

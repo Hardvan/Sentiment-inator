@@ -35,9 +35,9 @@ templates/index.html:
           words. Much like our fellow mime, Charlie Chaplin, we too won't "talk"
           to the person interacting with us, but fear not, for we're still
           masters at expressing and reflecting the emotions that dwell within
-          them, all while maintaining our silence. We're the Sentimentinators,
-          and we're here to help you understand the emotions behind the words
-          you type.
+          them, all while maintaining our silence. We're the
+          <span class="sentimentinators">Sentimentinators</span>, and we're here
+          to help you understand the emotions behind the words you type.
         </p>
       </div>
 
@@ -181,24 +181,42 @@ body {
 
 /* Description */
 .description {
+  background: var(--bg-color);
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
   color: var(--font-color);
   font-size: 1.2rem;
-  text-align: center;
-  margin: 10px;
+  margin: 10px auto;
+  max-width: 420px;
+  padding: 10px;
 }
 
 .description h2 {
   font-size: 1.5rem;
   font-weight: 900;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .description p {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--font-color);
-  padding: 10px;
-  border-radius: 5px;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.sentimentinators {
+  color: var(--main-color);
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.sentimentinators:hover {
+  background-color: var(--input-focus);
+  color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
 }
 
 /* Input Form */
