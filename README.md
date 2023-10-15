@@ -33,6 +33,20 @@ Sentimentinator is a web-based sentiment analysis tool that utilizes natural lan
   - Numpy
   - Regular Expressions (Regex)
 
+## Features
+
+- **Sentiment Prediction**: Sentimentinator provides the ability to predict the sentiment of text input, categorizing it as positive, neutral, or negative.
+
+- **Web Interface**: Users can interact with the sentiment analysis tool through a user-friendly web interface.
+
+- **Sample Text Prompts**: The website offers sample text prompts for easy testing and demonstration of the sentiment analysis tool.
+
+- **Data Visualization**: Sentimentinator provides data visualization tools to help users understand the performance of the sentiment analysis model.
+
+## Model Training
+
+To know more about the model training process, please refer to the [Sentiment_Analysis.ipynb](https://github.com/Hardvan/My-Machine-Learning-Projects/blob/main/Kaggle%20Practice/12_Sentiment_Analysis/Sentiment_Analysis.ipynb).
+
 ## Installation
 
 1. Clone the repo
