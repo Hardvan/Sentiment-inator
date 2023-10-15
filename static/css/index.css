@@ -217,10 +217,26 @@ body {
   border: 2px solid var(--main-color);
   background-color: var(--bg-color);
   box-shadow: 4px 4px var(--main-color);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .sample-text-prompts a:hover {
   background-color: var(--input-focus);
+  color: var(--bg-color);
+}
+
+.sample-text-prompts .positive:hover {
+  background-color: var(--positive-color);
+  color: var(--bg-color);
+}
+
+.sample-text-prompts .neutral:hover {
+  background-color: var(--neutral-color);
+  color: var(--bg-color);
+}
+
+.sample-text-prompts .negative:hover {
+  background-color: var(--negative-color);
   color: var(--bg-color);
 }
 
