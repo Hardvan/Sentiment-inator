@@ -59,7 +59,8 @@ def text_process(message):
     return ' '.join([word for word in cleaned_words if word not in STOPWORDS])
 
 
-def predict_sentiment(text, model_path='./static/models/my_best_sentiment_model_1695647318.9605517.sav'):
+def predict_sentiment(text,
+    model_path='./static/models/my_best_sentiment_model_1695647318.9605517.sav'):
 
     model = load_sentiment_model(model_path)
 

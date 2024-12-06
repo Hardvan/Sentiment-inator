@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-
-
-# Import the predict_sentiment function
+# Custom module
 import NLP_model
 
 app = Flask(__name__)
